@@ -125,7 +125,7 @@
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
-        <img src="https://ait.ethz.ch/projects/2022/pina/downloads/assets/teaser.png"  class="center"/>
+        <img src="https://ait.ethz.ch/projects/2022/pina/downloads/assets/teaser2.png"  class="center"/>
       <h2 class="subtitle has-text-centered">
       
 We propose PINA, a method to acquire personalized and animatable neural avatars from RGB-D videos. 
@@ -174,38 +174,42 @@ We propose PINA, a method to acquire personalized and animatable neural avatars 
     <h2 class="title">Method</h2>
     <img src="https://ait.ethz.ch/projects/2022/pina/downloads/assets/pipeline.png"  height="250" class="center"/>
     <p>
-     TODO
+To reconstruct personalized avatars with realistic clothing deformations during animation, we propose to learn the shape and non-rigid surface deformations via a pose-conditioned implicit surface and a deformation field, defined in canonical space.
     </p>
 
     
-    <h3 class="title">Learning Shape and Skinning from "Crowdsampled" Posed Scans</h2>
+    <h3 class="title"> Implicit Neural Avatar </h2>
     <p>
+  Learning an animatable avatar from a monocular RGB-D sequence is challenging since raw depth images are noisy and only contain partial views of the body. At the core of our method lies the idea to fuse partial depth maps into a single, consistent representation and to learn
+the articulation-driven deformations at the same time. To do so, we parametrize the 3D surface of clothed humans as a pose-conditioned implicit signed-distance field (SDF) and a learned deformation field in canonical space.
+    </p>
+    
+    
+    <h3 class="title">Training Process</h2>
+    <p>
+ Training is formulated as global optimization to jointly optimize the per-frame pose, shape and skinning fields without requiring prior knowledge extracted from large datasets. Based on our model parametrization, we transform the canonical surface points and the spatial gradient into posed space, enabling supervision via the input point cloud and its normals.
+    </p>
+
   
-    </p>
-
-    <h3 class="title">Learning 3D Wrinkles via 2D Adversarial Loss</h2>
-    <p>
-      
-    </p>
-
-  </div>
 </section>
 
 <section class="section" id="result">
   <div class="container is-max-desktop content">
     <h2 class="title">Result</h2>
 
-    <h3 class="title">Disentangled Generation</h3>
+    <h3 class="title">Results on Real-world Data</h3>
     <p>
-      Our model enables disentangled control over coarse shape, fine details, body pose and body size.
+     Here, we show some of our results and all avatars have been learned from real-world RGB-D data
     </p>
+    
+    
     <div class="columns is-centered">
       <!-- Visual Effects. -->
       <div class="column">
         <div class="content">
-          <h4 class="title">Coarse Shape</h4>
+          <h4 class="title">Reconstruction</h4>
           <video autoplay controls muted loop height="100%">
-            <source src="https://ait.ethz.ch/projects/2022/gdna/downloads/assets/shape_crop.mp4"
+            <source src="https://ait.ethz.ch/projects/2022/pina/downloads/assets/recon1.mp4"
                     type="video/mp4">
           </video>
         </div>
@@ -214,11 +218,11 @@ We propose PINA, a method to acquire personalized and animatable neural avatars 
 
       <!-- Matting. -->
       <div class="column">
-        <h4 class="title">Fine Details</h4>
+        <h4 class="title">Animation</h4>
         <div class="columns is-centered">
           <div class="column content">
           <video autoplay controls muted loop height="100%">
-            <source src="https://ait.ethz.ch/projects/2022/gdna/downloads/assets/detail_crop.mp4"
+            <source src="https://ait.ethz.ch/projects/2022/pina/downloads/assets/anim1.mp4"
                     type="video/mp4">
           </video>
           </div>
@@ -226,13 +230,16 @@ We propose PINA, a method to acquire personalized and animatable neural avatars 
       </div>
     </div>
 
+
+
+
     <div class="columns is-centered">
       <!-- Visual Effects. -->
       <div class="column">
         <div class="content">
-          <h4 class="title">Body Size</h4>
+       
           <video autoplay controls muted loop height="100%">
-            <source src="https://ait.ethz.ch/projects/2022/gdna/downloads/assets/size_crop.mp4"
+            <source src="https://ait.ethz.ch/projects/2022/pina/downloads/assets/recon2.mp4"
                     type="video/mp4">
           </video>
         </div>
@@ -241,11 +248,94 @@ We propose PINA, a method to acquire personalized and animatable neural avatars 
 
       <!-- Matting. -->
       <div class="column">
-        <h4 class="title">Body Pose</h4>
+       
         <div class="columns is-centered">
           <div class="column content">
           <video autoplay controls muted loop height="100%">
-            <source src="https://ait.ethz.ch/projects/2022/gdna/downloads/assets/pose_crop.mp4"
+            <source src="https://ait.ethz.ch/projects/2022/pina/downloads/assets/anim2.mp4"
+                    type="video/mp4">
+          </video>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+        <div class="columns is-centered">
+      <!-- Visual Effects. -->
+      <div class="column">
+        <div class="content">
+       
+          <video autoplay controls muted loop height="100%">
+            <source src="https://ait.ethz.ch/projects/2022/pina/downloads/assets/recon3.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <!--/ Visual Effects. -->
+
+      <!-- Matting. -->
+      <div class="column">
+       
+        <div class="columns is-centered">
+          <div class="column content">
+          <video autoplay controls muted loop height="100%">
+            <source src="https://ait.ethz.ch/projects/2022/pina/downloads/assets/anim3.mp4"
+                    type="video/mp4">
+          </video>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    
+        <div class="columns is-centered">
+      <!-- Visual Effects. -->
+      <div class="column">
+        <div class="content">
+       
+          <video autoplay controls muted loop height="100%">
+            <source src="https://ait.ethz.ch/projects/2022/pina/downloads/assets/recon4.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <!--/ Visual Effects. -->
+
+      <!-- Matting. -->
+      <div class="column">
+       
+        <div class="columns is-centered">
+          <div class="column content">
+          <video autoplay controls muted loop height="100%">
+            <source src="https://ait.ethz.ch/projects/2022/pina/downloads/assets/anim4.mp4"
+                    type="video/mp4">
+          </video>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    
+       <div class="columns is-centered">
+      <!-- Visual Effects. -->
+      <div class="column">
+        <div class="content">
+       
+          <video autoplay controls muted loop height="100%">
+            <source src="https://ait.ethz.ch/projects/2022/pina/downloads/assets/recon5.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <!--/ Visual Effects. -->
+
+      <!-- Matting. -->
+      <div class="column">
+       
+        <div class="columns is-centered">
+          <div class="column content">
+          <video autoplay controls muted loop height="100%">
+            <source src="https://ait.ethz.ch/projects/2022/pina/downloads/assets/anim5.mp4"
                     type="video/mp4">
           </video>
           </div>
@@ -253,96 +343,32 @@ We propose PINA, a method to acquire personalized and animatable neural avatars 
       </div>
     </div>
 
-    <h3 class="title">Interpolation+Animation</h3>
+
+    <h3 class="title">Effects of Deformation Model</h3>
+    <h4 class="title">Learned Skinning Weights</h4>
     <p>
-      We interpolate between latent codes of training samples during animation.
+      Without learned skinning weights, the deformed regions can be noisy and display visible artifacts.
     </p>
-    <video poster="" id="chair-tp" autoplay controls muted loop width="50%">
-      <source src="https://ait.ethz.ch/projects/2022/gdna/downloads/assets/interp_crop.mp4", type="video/mp4">
+    <video poster="" id="chair-tp" autoplay controls muted loop width="100%">
+      <source src="https://ait.ethz.ch/projects/2022/pina/downloads/assets/ablation1.mp4", type="video/mp4">
     </video>
 
-    <h3 class="title">Random Sampling</h3>
+   <h4 class="title">Pose-dependent Deformation</h4>
     <p>
-      We can randomly sample 3D avatars in various clothing and identities and animate them with pose sequences from existing motion databases.
+     Without pose-dependent features, the shape network cannot represent dynamically changing surface details.
     </p>
+    <video poster="" id="chair-tp" autoplay controls muted loop width="100%">
+      <source src="https://ait.ethz.ch/projects/2022/pina/downloads/assets/ablation2.mp4", type="video/mp4">  
+    
 
-  <section class="hero is-light is-small">
-    <div class="hero-body">
-      <div class="container">
-        <div id="results-carousel" class="carousel results-carousel">
-          <div class="item item-steve">
-            <video poster="" autoplay controls muted loop height="100%">
-              <source src="https://ait.ethz.ch/projects/2022/gdna/downloads/assets/sample1_crop.mp4" type="video/mp4">
-            </video>
-          </div>
-          <div class="item item-chair-tp">
-            <video poster="" autoplay controls muted loop height="100%">
-              <source src="https://ait.ethz.ch/projects/2022/gdna/downloads/assets/sample7_crop.mp4" type="video/mp4">
-            </video>
-          </div>
-          <div class="item item-chair-tp">
-            <video poster="" autoplay controls muted loop height="100%">
-              <source src="https://ait.ethz.ch/projects/2022/gdna/downloads/assets/sample2_crop.mp4" type="video/mp4">
-            </video>
-          </div>
-          <div class="item item-chair-tp">
-            <video poster="" autoplay controls muted loop height="100%">
-              <source src="https://ait.ethz.ch/projects/2022/gdna/downloads/assets/sample8_crop.mp4" type="video/mp4">
-            </video>
-          </div>
-          <div class="item item-chair-tp">
-            <video poster="" autoplay controls muted loop height="100%">
-              <source src="https://ait.ethz.ch/projects/2022/gdna/downloads/assets/sample3_crop.mp4" type="video/mp4">
-            </video>
-          </div>
-          <div class="item item-chair-tp">
-            <video poster="" autoplay controls muted loop height="100%">
-              <source src="https://ait.ethz.ch/projects/2022/gdna/downloads/assets/sample9_crop.mp4" type="video/mp4">
-            </video>
-          </div>
-          <div class="item item-chair-tp">
-            <video poster="" autoplay controls muted loop height="100%">
-              <source src="https://ait.ethz.ch/projects/2022/gdna/downloads/assets/sample4_crop.mp4" type="video/mp4">
-            </video>
-          </div>
-          <div class="item item-chair-tp">
-            <video poster="" autoplay controls muted loop height="100%">
-              <source src="https://ait.ethz.ch/projects/2022/gdna/downloads/assets/sample10_crop.mp4" type="video/mp4">
-            </video>
-          </div>
-          <div class="item item-chair-tp">
-            <video poster="" autoplay controls muted loop height="100%">
-              <source src="https://ait.ethz.ch/projects/2022/gdna/downloads/assets/sample5_crop.mp4" type="video/mp4">
-            </video>
-          </div>
-          <div class="item item-chair-tp">
-            <video poster="" autoplay controls muted loop height="100%">
-              <source src="https://ait.ethz.ch/projects/2022/gdna/downloads/assets/sample11_crop.mp4" type="video/mp4">
-            </video>
-          </div>
-          <div class="item item-chair-tp">
-            <video poster="" autoplay controls muted loop height="100%">
-              <source src="https://ait.ethz.ch/projects/2022/gdna/downloads/assets/sample6_crop.mp4" type="video/mp4">
-            </video>
-          </div>
-          <div class="item item-chair-tp">
-            <video poster="" autoplay controls muted loop height="100%">
-              <source src="https://ait.ethz.ch/projects/2022/gdna/downloads/assets/sample12_crop.mp4" type="video/mp4">
-            </video>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  </div>
 </section>
 
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
-    <pre><code>@article{chen2022gdna,
-      title={gDNA: Towards Generative Detailed Neural Avatars},
-      author={Chen, Xu and Jiang, Tianjian and Song, Jie and Yang, Jinlong and Black, Michael J and Geiger, Andreas and Hilliges, Otmar},    
+    <pre><code>@article{dong2022pina,
+      title={PINA: Learning a Personalized Implicit Neural Avatar from a Single RGB-D Video Sequence},
+      author={Dong, Zijian and Guo, Chen and Song, Jie and Chen, Xu and Geiger, Andreas and Hilliges, Otmar},    
       journal   = {arXiv},
       year      = {2022}
     }</code></pre>
@@ -354,10 +380,10 @@ We propose PINA, a method to acquire personalized and animatable neural avatars 
   <div class="container">
     <div class="content has-text-centered">
       <a class="icon-link"
-         href="https://ait.ethz.ch/projects/2022/gdna/downloads/main.pdf">
+         href="https://ait.ethz.ch/projects/2022/pina/downloads/main.pdf">
         <i class="fas fa-file-pdf"></i>
       </a>
-      <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
+      <a class="icon-link" href="https://github.com/zj-dong" class="external-link" disabled>
         <i class="fab fa-github"></i>
       </a>
     </div>
