@@ -35,19 +35,16 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">gDNA: Towards Generative Detailed Neural Avatars</h1>
+          <h1 class="title is-1 publication-title">PINA: Learning a Personalized Implicit Neural Avatar from a Single RGB-D Video Sequence</h1>
           <div class="is-size-5 publication-authors">
             <span class="author-block">
-              <a href="https://ait.ethz.ch/people/xu/">Xu Chen</a><sup>1,3</sup>,</span>
+              <a href="https://ait.ethz.ch/people/zijian/">Zijian Dong*</a><sup>1</sup>,</span>
             <span class="author-block">
-              <a href="https://inf.ethz.ch/people/people-atoz/person-detail.MjUwNDAx.TGlzdC8zMDQsLTIxNDE4MTU0NjA=.html">Tianjian Jiang</a><sup>1</sup>,</span>
+              <a href="https://ait.ethz.ch/people/chen/">Chen Guo*</a><sup>1</sup>,</span>
             <span class="author-block">
               <a href="https://ait.ethz.ch/people/song/">Jie Song</a><sup>1</sup>,</span>
             <span class="author-block">
-              <a href="https://is.mpg.de/person/jyang">Jinlong Yang</a><sup>3</sup>,</span>
-            <span class="author-block">
-              <a href="https://ps.is.mpg.de/~black">Michael J. Black</a><sup>3</sup>,
-            </span>
+              <a href="https://ait.ethz.ch/people/xu/">Xu Chen</a><sup>1</sup>,</span>
             <span class="author-block">
               <a href="http://www.cvlibs.net/">Andreas Geiger</a><sup>2,3</sup>,
             </span>
@@ -68,7 +65,7 @@
             <div class="publication-links">
               <!-- PDF Link. -->
               <span class="link-block">
-                <a href="https://ait.ethz.ch/projects/2022/gdna/downloads/main.pdf"
+                <a href="https://ait.ethz.ch/projects/2022/pina/downloads/main.pdf"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fas fa-file-pdf"></i>
@@ -78,7 +75,7 @@
               </span>
               <!-- Video Link. -->
               <span class="link-block">
-                <a href="https://youtu.be/cyQCijencJE"
+                <a href="https://youtu.be/oGpKUuD54Qk"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fab fa-youtube"></i>
@@ -108,7 +105,7 @@
               </span> -->
               <!-- Code Link. -->
               <span class="link-block">
-                <a href="https://github.com/xuchen-ethz/gdna"
+                <a href="https://github.com/zj-dong/pina"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fab fa-github"></i>
@@ -128,9 +125,11 @@
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
-        <img src="https://ait.ethz.ch/projects/2022/gdna/downloads/assets/teaser.png"  class="center"/>
+        <img src="https://ait.ethz.ch/projects/2022/pina/downloads/assets/teaser.png"  class="center"/>
       <h2 class="subtitle has-text-centered">
-        gDNA generates animatable avatars in various identities and clothing with surface details by learning from static scans. 
+      
+We propose PINA, a method to acquire personalized and animatable neural avatars from RGB-D videos. 
+      
       </h2>
     </div>
   </div>
@@ -145,19 +144,23 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-          To make 3D human avatars widely available, we must be able to generate a variety of 3D virtual humans with varied identities and shapes in arbitrary poses. This task is challenging due to the diversity of clothed body shapes, their complex articulations, and the resulting rich, yet stochastic geometric detail in clothing. Hence, current methods to represent 3D people do not provide a full generative model of people in clothing. In this paper, we propose a novel method that learns to generate detailed 3D shapes of people in a variety of garments with corresponding skinning weights. Specifically, we devise a multi-subject forward skinning module that is learned from only a few posed, un-rigged scans per subject. To capture the stochastic nature of high-frequency details in garments, we leverage an adversarial loss formulation that encourages the model to capture the underlying statistics. We provide empirical evidence that this leads to realistic generation of local details such as clothing wrinkles. We show that our model is able to generate natural human avatars wearing diverse and detailed clothing. Furthermore, we show that our method can be used on the task of fitting human models to raw scans, outperforming the previous state-of-the-art.          
+          
+          We present a novel method to learn Personalized Implicit Neural Avatars (PINA) from a short RGB-D sequence. This allows non-expert users to create a detailed and personalized virtual copy of themselves, which can be animated with realistic clothing deformations. PINA does not require complete scans, nor does it require a prior learned from large datasets  of  clothed  humans.   Learning  a  complete  avatar in this setting is challenging,  since only few depth observations are available, which are noisy and incomplete (i.e.only partial visibility of the body per frame). We propose a method to learn the shape and non-rigid deformations via a pose-conditioned implicit surface and a deformation field, defined in canonical space. This allows us to fuse all partial observations into a single consistent canonical representation. Fusion is formulated as a global optimization problem over the pose, shape and skinning parameters. The method can learn neural avatars from real noisy RGB-D sequences for  a  diverse  set  of  people  and  clothing  styles  and  these avatars can be animated given unseen motion sequences.
+          
         </p>
         </div>
       </div>
     </div>
     <!--/ Abstract. -->
+    
+
 
     <!-- Paper video. -->
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <h2 class="title is-3">Video</h2>
         <div class="publication-video">
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/cyQCijencJE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+         <iframe width="560" height="315" src="https://www.youtube.com/embed/oGpKUuD54Qk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
       </div>
     </div>
@@ -169,22 +172,20 @@
 <section class="section" id="method">
   <div class="container is-max-desktop content">
     <h2 class="title">Method</h2>
-    <img src="https://ait.ethz.ch/projects/2022/gdna/downloads/assets/pipeline.png"  height="250" class="center"/>
+    <img src="https://ait.ethz.ch/projects/2022/pina/downloads/assets/pipeline.png"  height="250" class="center"/>
     <p>
-      To generate diverse 3D humans, we build an implicit multi-subject articulated model.
-
-      We model clothed human shapes and detailed surface normals in a pose-independent canonical space via a neural implicit surface representation, conditioned on latent codes.
+     TODO
     </p>
 
     
     <h3 class="title">Learning Shape and Skinning from "Crowdsampled" Posed Scans</h2>
     <p>
-      In previous work, learning shape and skinning either requires direct supervision or many poses of the same subject. This dramatically limits the data amount and/or quality. With our proposed multi-subject forward skinning module, our method can learn shape and skinning weights jointly from "crowd sampled" poses - one or very few poses per subject from various subjects. As a result, our method can leverage high-quality commercial scans with varying topology and one or very few poses per subject, which was not possible before.
+  
     </p>
 
     <h3 class="title">Learning 3D Wrinkles via 2D Adversarial Loss</h2>
     <p>
-      We found that learning high-quality surface details is difficult with a pure reconstruction loss due to the stochastic nature of wrinkles. While adversarial losses are promising to improve details, applying them in 3D is infeasible due to the memory requirement. We propose to learn 3D wrinkles by projecting them to 2D, and then apply a 2D adversarial loss to optimize our 3D detailed normal field. In this way, our method learns to produce faithful wrinkles.
+      
     </p>
 
   </div>
